@@ -12,6 +12,9 @@
       crossorigin="anonymous"
     />
 
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
     <!-- My CSS -->
     <link rel="stylesheet" href="style.css" />
 
@@ -67,7 +70,7 @@
         class="rounded-circle img-thumbnail"
       />
       <h1 class="display-4">I Komang Dedy Parsada</h1>
-      <p class="lead">Self Employed | Automation Engineering</p>
+      <p class="lead"></p>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
           fill="#ffffff"
@@ -87,7 +90,7 @@
           </div>
         </div>
         <div class="row justify-content-center fs-5 text-center">
-          <div class="col-md-4">
+          <div class="col-md-4" data-aos="fade-right">
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
               consequuntur libero quod cum velit dignissimos amet. Eligendi,
@@ -95,7 +98,7 @@
               nulla aliquid alias. Alias, omnis.
             </p>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4" data-aos="fade-left" data-aos-delay="200">
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
               ratione odio ab eveniet similique asperiores aperiam. Laudantium
@@ -124,7 +127,7 @@
         </div>
         <div class="row justify-content-center">
           <div class="col-md-4 mb-3">
-            <div class="card">
+            <div class="card" data-aos="flip-left" data-aos-duration="500">
               <img
                 src="img/projects/g1.jpg"
                 class="card-img-top"
@@ -139,7 +142,12 @@
             </div>
           </div>
           <div class="col-md-4 mb-3">
-            <div class="card">
+            <div
+              class="card"
+              data-aos="flip-left"
+              data-aos-duration="500"
+              data-aos-delay="100"
+            >
               <img
                 src="img/projects/g1.jpg"
                 class="card-img-top"
@@ -154,7 +162,12 @@
             </div>
           </div>
           <div class="col-md-4 mb-3">
-            <div class="card">
+            <div
+              class="card"
+              data-aos="flip-left"
+              data-aos-duration="500"
+              data-aos-delay="300"
+            >
               <img
                 src="img/projects/g1.jpg"
                 class="card-img-top"
@@ -179,6 +192,47 @@
       </svg>
     </section>
     <!-- Akhir Projects -->
+    <section id="gallery">
+      <div class="container">
+        <div class="row text-center mb-3">
+          <div class="col">
+            <h2>Gallery</h2>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-3">
+            <a href="#">
+              <img
+                src="img/gallery/thumbnail/1.jpg"
+                alt="gallery1"
+                class="img-fluid gallery-img"
+              />
+            </a>
+          </div>
+          <div class="col-md-3">
+            <a href="#">
+              <img
+                src="img/gallery/thumbnail/2.jpg"
+                alt="gallery2"
+                class="img-fluid gallery-img"
+              />
+            </a>
+          </div>
+          <div class="col-md-3">
+            <a href="#">
+              <img
+                src="img/gallery/thumbnail/3.jpg"
+                alt="gallery3"
+                class="img-fluid gallery-img"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Gallery -->
+
+    <!-- Akhir Gallery -->
 
     <!-- Contact -->
     <section id="contact">
@@ -288,6 +342,51 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      const galleryImage = document.querySelectorAll(".gallery-img");
+
+      galleryImage.forEach((img, i) => {
+        img.dataset.aos = "fade-down";
+        img.dataset.aosDelay = i * 100;
+        img.dataset.aosDuration = 1000;
+      });
+
+      AOS.init({
+        once: true,
+        duration: 2000,
+      });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/TextPlugin.min.js"></script>
+    <script>
+      gsap.registerPlugin(TextPlugin);
+      gsap.to(".lead", {
+        duration: 2,
+        delay: 1.5,
+        text: "Self Employed | Automation Engineering",
+      });
+      gsap.from(".jumbotron img", {
+        duration: 1,
+        rotateY: 360,
+        opacity: 0,
+      });
+      gsap.from(".navbar", {
+        duration: 1.5,
+        y: "-100%",
+        opacity: 0,
+      });
+      gsap.from(".display-4", {
+        duration: 1,
+        x: -50,
+        opacity: 0,
+        delay: 0.5,
+        ease: "back",
+      });
+    </script>
+
     <script>
       const scriptURL =
         "https://script.google.com/macros/s/AKfycbxPnA2AkVuz4DmyJzAqZYUSbQFPSGnoj5WO9NkPH7HV2t08Rq8zkwyOoHjRGCKDHuU1nw/exec";
